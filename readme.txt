@@ -24,7 +24,7 @@ To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somw
 
 == Changelog ==
 
-=1.1=
+= 1.1 =
 *Added styles so a hand pointer cursor shows when people hover over headings / questions
 *Allowed unordered and ordered lists to be used in answers and hidden / shown correctly
 *Allow one to two paragraphs (depending on theme) at the very beginning of the content that is not hidden, allowing user to use an introductory paragraph
