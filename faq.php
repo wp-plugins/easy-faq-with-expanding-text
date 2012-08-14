@@ -20,6 +20,7 @@ function faq_template() {
 	if ($pos!==false || $posa!==false){
         if ( have_posts() ) {
 			wp_enqueue_script('faqmaker', plugins_url( 'faqmaker.js' , __FILE__ ), array('jquery'));
+			wp_enqueue_style( 'faqstyle', plugins_url( 'faqstyle.css' , __FILE__ ));
 			add_filter( 'the_content', 'faq_filter' );
         }
         else {
@@ -53,11 +54,11 @@ function faq_options_page() {
 <p><strong>First</strong>, create a page that includes "FAQ" or "Frequently Asked Questions" somewhere in the title. Note that permalinks must be set to include the title in the permalink.</p>
 <img src="<?php echo plugins_url( 'faq_heading.png' , __FILE__ ); ?>" style="float:left; margin: 5px 10px; border:1px solid #aaa"/>
 </p><strong>Second</strong>, type your questions and answers.</p>
-<p>You indicate questions and answers via formatting that is built into the WordPress editor. Format questions as any kind of heading <strong>(h1, h6... it doesn't matter)</strong>, and format answers as paragraphs. You can include pictures in the answers, as WordPress usually wraps them in paragraph tags.</p>
+<p>You indicate questions and answers via formatting that is built into the WordPress editor. Format questions as any kind of heading <strong>(h1, h6... it doesn't matter)</strong>, and format answers as paragraphs. You can include pictures in the answers, as WordPress usually wraps them in paragraph tags. Also, as of version 1.1, this plugin correctly handles lists (numbered and unnumbered) in the answers.</p>
+<p>If you need to include some introductory text on your FAQ page, just make it the first paragraph. With some themes, thie plugin may allow two unhidden introductory paragraphs at the very beginning of your content.</p>
 <p>Save the page, then view it.</p>
 <p>The plugin creates the accordian FAQ functionality on headings and paragraphs within the post content div. For many themes, this div has a class of "entry-content," so that is the default. However, if your theme gives a different class to the div that contains the template tag for the_content(), you can enter that in the options below.</p>
 <h2>See below to set options for this plugin and read troubleshooting tips.</h2>
-<p>Note: If you need to include some introductory text on your FAQ page, I would recommend formatting that text as a heading....Because otherwise, it would be hidden.</p>
 <div style="clear:both;"></div>
 <div style="float:right; width:35%; margin: 0px 2% 0px 2%; padding:10px; background-color:#c6ece8; border-radius:20px;">
 <h1>Please consider donating</h1>

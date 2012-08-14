@@ -1,5 +1,6 @@
 function bgfaq(theclass,foldup) {
-		jQuery('.'+theclass+' p').hide();
+		jQuery('.'+theclass+' p:not(:first-child, :nth-child(2)), .'+theclass+' ul, .'+theclass+' ol').hide();
+		
 		jQuery('.'+theclass+' :header').click(function(){
 		
 			if(jQuery(this).next().is(':visible')) {
@@ -7,7 +8,7 @@ function bgfaq(theclass,foldup) {
 				}
 		else {
 		if(foldup=='yes') {
-			jQuery('.'+theclass+' :not(:header)').slideUp();
+			jQuery('.'+theclass+' :not(:header, p:first-child, p:nth-child(2))').slideUp();
 		}
 		jQuery(this).nextUntil(':header').slideToggle()
 		}

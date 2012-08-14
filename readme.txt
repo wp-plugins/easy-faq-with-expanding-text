@@ -4,7 +4,7 @@ Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Requires at least: 2.0.2
 Tested up to: 3.4.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,11 @@ To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somw
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
 
 == Changelog ==
+
+=1.1=
+*Added styles so a hand pointer cursor shows when people hover over headings / questions
+*Allowed unordered and ordered lists to be used in answers and hidden / shown correctly
+*Allow one to two paragraphs (depending on theme) at the very beginning of the content that is not hidden, allowing user to use an introductory paragraph
 
 = 1.0 =
 * The plugin was invented!
