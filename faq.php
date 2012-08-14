@@ -5,6 +5,7 @@ Description: Easily create a Frequently Asked Questions page with answers that s
 Version: 1.0
 Author: bgentry
 Author URI: http://bryangentry.us
+Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
 */
 
 add_action( 'template_redirect', 'faq_template' );
