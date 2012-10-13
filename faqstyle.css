@@ -1,0 +1,11 @@
+#bg_faq_content_section h1,#bg_faq_content_section h2,#bg_faq_content_section h3, #bg_faq_content_section h4, #bg_faq_content_section h5,#bg_faq_content_section h6 {
+cursor:pointer!important;
+}
+
+.bg_faq_hidden {
+	display:none;
+}
+
+.bg_faq_unhidden {
+	display:block;
+}
