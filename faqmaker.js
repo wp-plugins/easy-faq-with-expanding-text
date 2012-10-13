@@ -1,16 +1,16 @@
-function bgfaq(theclass,foldup) {
-		jQuery('.'+theclass+' p:not(:first-child, :nth-child(2)), .'+theclass+' ul, .'+theclass+' ol').hide();
+function bgfaq(foldup) {
+		jQuery('#bg_faq_content_section  p:not(:first-child, :nth-child(2)), #bg_faq_content_section ul, #bg_faq_content_section ol').addClass("bg_faq_hidden");
 		
-		jQuery('.'+theclass+' :header').click(function(){
+		jQuery('#bg_faq_content_section :header').click(function(){
 		
 			if(jQuery(this).next().is(':visible')) {
-				jQuery(this).nextUntil(':header').slideUp();
+				jQuery(this).nextUntil(':header').slideUp().addClass('bg_faq_hidden');
 				}
 		else {
 		if(foldup=='yes') {
-			jQuery('.'+theclass+' :not(:header, p:first-child, p:nth-child(2))').slideUp();
+			jQuery('.bg_faq_unhidden').slideUp().removeClass('bg_faq_unhidden').addClass('bg_faq_hidden');
 		}
-		jQuery(this).nextUntil(':header').slideToggle()
+		jQuery(this).nextUntil(':header').slideToggle().addClass('bg_faq_unhidden');
 		}
 		
 		

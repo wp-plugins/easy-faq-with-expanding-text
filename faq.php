@@ -33,9 +33,9 @@ function faq_template() {
 	function faq_filter($content) {
 //this code adds a script to call our javascript function with arguments set on the admin page
 	$faqoptions = get_option('bg_faq_options');
-		$contentdiv = ($faqoptions['contentdiv_class']) ? $faqoptions['contentdiv_class'] : 'entry-content';
 	$foldup = $faqoptions['foldup'];
-		$content.='<script>bgfaq("'.$contentdiv.'","'.$foldup.'")</script>';
+	$content = '<div id="bg_faq_content_section">'.$content;
+		$content.='<script>bgfaq("'.$foldup.'")</script></div>';
 		return $content;
 	}
 	
@@ -52,13 +52,14 @@ function faq_options_page() {
 <p>This plugin turns your standard frequently asked questions page(s) into a dynamic, animated page. When users click on a question, the answer will expand underneath it. If they click the question again, the answer will slide up and disappear.</p>
 <h2>Here's How...</h2>
 <img src="<?php echo plugins_url( 'faq_title.png' , __FILE__ ); ?>" style="float:right; margin: 0 20px; border:1px solid #aaa"/>
-<p><strong>First</strong>, create a page that includes "FAQ" or "Frequently Asked Questions" somewhere in the title. Note that permalinks must be set to include the title in the permalink.</p>
+<p><strong>First</strong>, create a page that includes "FAQ" or "Frequently Asked Questions" somewhere in the title. Make sure that the permalink to this page (displayed on your page editor screen just below the title) includes faq or frequently-asked-questions in the url.</p>
 <img src="<?php echo plugins_url( 'faq_heading.png' , __FILE__ ); ?>" style="float:left; margin: 5px 10px; border:1px solid #aaa"/>
-</p><strong>Second</strong>, type your questions and answers.</p>
-<p>You indicate questions and answers via formatting that is built into the WordPress editor. Format questions as any kind of heading <strong>(h1, h6... it doesn't matter)</strong>, and format answers as paragraphs. You can include pictures in the answers, as WordPress usually wraps them in paragraph tags. Also, as of version 1.1, this plugin correctly handles lists (numbered and unnumbered) in the answers.</p>
-<p>If you need to include some introductory text on your FAQ page, just make it the first paragraph. With some themes, thie plugin may allow two unhidden introductory paragraphs at the very beginning of your content.</p>
-<p>Save the page, then view it.</p>
-<p>The plugin creates the accordian FAQ functionality on headings and paragraphs within the post content div. For many themes, this div has a class of "entry-content," so that is the default. However, if your theme gives a different class to the div that contains the template tag for the_content(), you can enter that in the options below.</p>
+<p><strong>Second</strong>, type your questions and answers.</p>
+<p>You indicate questions and answers via formatting that is built into the WordPress editor. Format questions as any kind of heading <strong>(h1, h6... it doesn't matter)</strong>, and format answers as paragraphs or lists.</p>
+<p><strong>IMPORTANT: </strong> This plugin assumes that you will write one or two paragraphs of introductory text before the first question. If you are not putting introductory text there, hit "Enter" to leave a blank line at the top of your page content. Otherwise, the first answer on the page will not be hidden when the page loads.</p>
+<p>(I recommend having introductory text. It's a good place to welcome readers to the page, instruct them to click on the questions to reveal the answers, and / or link to your contact page in case their questions are not answered in the page.)</p>
+<p><strong>Third</strong>, save the page, then view it.</p>
+<p>The plugin creates the accordian FAQ functionality on headings and paragraphs in the page content. It will not affect headings and paragraphs in the sidebar or other parts of the page.</p> 
 <h2>See below to set options for this plugin and read troubleshooting tips.</h2>
 <div style="clear:both;"></div>
 <div style="float:right; width:35%; margin: 0px 2% 0px 2%; padding:10px; background-color:#c6ece8; border-radius:20px;">
@@ -84,18 +85,9 @@ do_settings_sections('faq_section');?>
 <p>If the plugin is not working correctly, here are a few things to check:</p>
 <h2>Ensure page name is correct and permalinks include post name</h2>
 <p>The plugin will only activate on pages (not posts!) whose titles include "FAQ" or "Frequently Asked Questions." Check the title of your page, and make sure it is a page, rather than a post.</p>
-<p>Also, permalinks must be enabled in such a way that the post name appears in the URL. Check out your Permalink settings and ensure that %postname% is somewhere in your permalink structure. (For SEO purposes, it should be there anyway!) I recommend choosing the Post Name setting on your <a href="<?php echo admin_url('options-permalink.php'); ?>">Permalinks page</a>.</p>
-<h2>Ensure the content div class is correct</h2>
-<p>We wouldn't want the plugin to hide content from the wrong parts of your page, so it only creates the animation effect inside the HTML element that contains your page content. In many WordPress themes, including the Twenty Eleven theme, this HTML element has a class named "entry-content," and that is the default that we use. However, if you are using a less standard theme, you might need to change the content div setting above.</p>
-<h4>Finding the right div calss</h3>
-<p>To find out what to enter in the box for the class, do the following:</p>
-<ol>
-<li>Visit the <a href="<?php echo admin_url('theme-editor.php'); ?>">Theme Editor</a> under the WordPress Appearance menu.</li>
-<li>Look down the list of file names on the right. Find the heading "page template" and click on the file beneath it.</li>
-<li>Search for the text "the_content()."</li>
-<li>If you do not find it in this file (or if there is no page template file), you might find it in a file such as content-page.php or index.php.</li>
-<li>Once you find "the_content()" you can look above it. There likely is some text that reads "div class='____'" and that blank is exactly what you are looking for.</li>
-</ol>
+<p>Also, the page's permalink mus include faq or frequently-asked-questions. Setting your permalinsk to include the post title should take care of this automatically in most cases. Check out your Permalink settings and ensure that %postname% is somewhere in your permalink structure. (For SEO purposes, it should be there anyway!) I recommend choosing the Post Name setting on your <a href="<?php echo admin_url('options-permalink.php'); ?>">Permalinks page</a>.</p>
+<h2>Consider introductory text</h2>
+<p>As mentioned in the instructions, you need either one or two paragraphs of introductory text, or one empty paragraph above the first question.</p>
 </div>
 
 <div style="border-radius: 20px; background-color: #ecd5c6; padding:10px; margin: 20px 2%; width: 50%; float:right;">
@@ -119,7 +111,6 @@ add_settings_section('faq_settings_section', 'FAQ Plugin Settings', 'faq_get_con
 
 function faq_get_content_div_class() {
 $faqoptions = get_option('bg_faq_options');
-echo "<p><label><strong>Class of div containing content: </strong><input id='plugin_text_string' name='bg_faq_options[contentdiv_class]' type='text' value='".$faqoptions['contentdiv_class']."'/>In your page template, what is the class of the HTML div or other element that contains the the_content() tag?</label></p>";
 
 echo '<p><label><strong>One answer open at a time?</strong>';
 if($faqoptions['foldup'] == "yes")
@@ -127,6 +118,7 @@ if($faqoptions['foldup'] == "yes")
 else
 	echo "<input name='bg_faq_options[foldup]' type='checkbox' value='yes' /> When users open one question, do you want all other opened answers to disappear as the new answer appears? Check here for yes.";
 echo '</label></p>';
+echo '<p>That is the only setting you need to decide on!</p>';
  }
 	
 	

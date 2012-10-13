@@ -2,9 +2,8 @@
 Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
-Requires at least: 2.0.2
 Tested up to: 3.4.1
-Stable tag: 1.1
+Stable tag: 2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +11,9 @@ Easily create a Frequently Asked Questions page with answers that slide down whe
 
 == Description ==
 
-Why have a dry Frequently Asked Questions page when you could have an easy interface with animations. This plugin allows you to create an FAQ page (or pages) with hidden answers that appear when a question is clicked. Anyone who can use the WordPress GUI editor can use this plugin to create the FAQ pages. No shortcode or other coding needed!
+Why have a dry Frequently Asked Questions page when you could have an easy interface with animations? This plugin allows you to create an FAQ page (or pages) with hidden answers that appear when a question is clicked. Anyone who can use the WordPress GUI editor can use this plugin to create the FAQ pages. No need for a shortcode or other coding needed!
 
-To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somwhere in the title. In the content of the page, select a heading style for questions and keep answers in the paragraph style. You also can include pictures and other content in the answers.
+To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somwhere in the title. In the content of the page, select a heading style for questions and keep answers in the paragraph or in lists.
 
 == Installation ==
 
@@ -23,6 +22,11 @@ To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somw
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
 
 == Changelog ==
+
+= 2.0 =
+* Improved the performance of the plugin when answers contain different colored text, lists, etc.
+* Removed the need to examine your WordPress theme and HTML to determine the class name for your content container. The plugin now finds the content automatically.
+* Updated and perfected the documentation and instructions.
 
 = 1.1 =
 *Added styles so a hand pointer cursor shows when people hover over headings / questions
