@@ -3,7 +3,7 @@ Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Tested up to: 3.4.1
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somw
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
 
 == Changelog ==
+
+= 2.1 =
+* Made the plugin more compatible with other plugins or themes that add elements to a page's content (such as social share buttons). With this update, those themes should not make the introductory paragraphs disappear.
 
 = 2.0 =
 * Improved the performance of the plugin when answers contain different colored text, lists, etc.

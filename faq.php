@@ -22,7 +22,7 @@ function faq_template() {
         if ( have_posts() ) {
 			wp_enqueue_script('faqmaker', plugins_url( 'faqmaker.js' , __FILE__ ), array('jquery'));
 			wp_enqueue_style( 'faqstyle', plugins_url( 'faqstyle.css' , __FILE__ ));
-			add_filter( 'the_content', 'faq_filter' );
+			add_filter( 'the_content', 'faq_filter',1 );
         }
         else {
             $wp_query->is_404 = true;
