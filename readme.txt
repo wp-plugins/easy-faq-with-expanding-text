@@ -2,8 +2,8 @@
 Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
-Tested up to: 3.4.1
-Stable tag: 2.1
+Tested up to: 3.5
+Stable tag: 3.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,9 +11,9 @@ Easily create a Frequently Asked Questions page with answers that slide down whe
 
 == Description ==
 
-Why have a dry Frequently Asked Questions page when you could have an easy interface with animations? This plugin allows you to create an FAQ page (or pages) with hidden answers that appear when a question is clicked. Anyone who can use the WordPress GUI editor can use this plugin to create the FAQ pages. No need for a shortcode or other coding needed!
+Lots of pages online have a dropdown text feature, where clicking a heading reveals next or photos underneath it. This plugin provides the easiest way to create these effects in your WordPress pages and posts. Anyone who can use the WordPress GUI editor can use this plugin to create the FAQ pages. No need for a shortcode or other coding needed!
 
-To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somwhere in the title. In the content of the page, select a heading style for questions and keep answers in the paragraph or in lists.
+To create your FAQ page, just click a checkbox on the post editing screen, or include "Frequently Asked Questions" or "FAQ" somwhere in the title. In the content of the page, select a heading style for the questions or titles that you want to appear, and the paragraphs, lists, photos, and videos beneath them will be hidden until the heading is clicked.
 
 == Installation ==
 
@@ -22,6 +22,12 @@ To create your FAQ page, just include "Frequently Asked Questions" or "FAQ" somw
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
 
 == Changelog ==
+
+= 3.0 =
+* Now you can assign the expanding text effect to any page or post, including pages that do not have "FAQ" in the title. This is done through a checkbox added to each page and post editing screen. Pages containing "FAQ" or "Frequently asked questions" in the title still receive the effect automatically, so people who used previous versions of this plugin do not need to go back and change anything.
+* The drop down text effects work on pages, single posts, and in a list of posts (index page)
+* Added two options for a visual cue that makes it obvious that you can click on the questions to expand some text.
+* Formatting a line of text as a heading 6 (h6) now allows users to stop the dropdown animations for that line and the lines following it, until another heading is used again.
 
 = 2.1 =
 * Made the plugin more compatible with other plugins or themes that add elements to a page's content (such as social share buttons). With this update, those themes should not make the introductory paragraphs disappear.
