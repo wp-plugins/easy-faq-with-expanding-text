@@ -3,7 +3,7 @@ Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Tested up to: 3.5
-Stable tag: 3.0
+Stable tag: 3.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ To create your FAQ page, just click a checkbox on the post editing screen, or in
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
 
 == Changelog ==
+
+= 3.1 =
+* Very minor update to adjust the location of the arrows and other images that indicate that a heading has drop down text. Now those will be centered even in themes that assign padding to the top of those headings.
 
 = 3.0 =
 * Now you can assign the expanding text effect to any page or post, including pages that do not have "FAQ" in the title. This is done through a checkbox added to each page and post editing screen. Pages containing "FAQ" or "Frequently asked questions" in the title still receive the effect automatically, so people who used previous versions of this plugin do not need to go back and change anything.
