@@ -10,6 +10,7 @@ function bgfaq(foldup) {
 			var padding = jQuery(this).css('padding-top');
 			var padding = parseInt(padding);
 			var backgroundpos = Math.round(halftextsize)-10+padding;
+			jQuery(this).css({'background-position-y': backgroundpos});
 			console.log(textsize);
 		jQuery(this).click(function(){
 		
