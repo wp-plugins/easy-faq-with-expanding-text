@@ -3,7 +3,7 @@ Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Tested up to: 3.5
-Stable tag: 3.1
+Stable tag: 3.1.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ To create your FAQ page, just click a checkbox on the post editing screen, or in
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
 
 == Changelog ==
+
+= 3.1.5 =
+Improved compability with Internet Explorer by removing a line of javascript that was not needed.
 
 = 3.1 =
 * Very minor update to adjust the location of the arrows and other images that indicate that a heading has drop down text. Now those will be centered even in themes that assign padding to the top of those headings.
