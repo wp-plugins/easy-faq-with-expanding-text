@@ -2,26 +2,31 @@
 Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
-Tested up to: 3.5
-Stable tag: 3.1.5
+Tested up to: 3.6.1
+Stable tag: 3.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode.
+Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, although there is an optional shortcode for more complex displays.
 
 == Description ==
 
-Lots of pages online have a dropdown text feature, where clicking a heading reveals next or photos underneath it. This plugin provides the easiest way to create these effects in your WordPress pages and posts. Anyone who can use the WordPress GUI editor can use this plugin to create the FAQ pages. No need for a shortcode or other coding needed!
+Lots of pages online have a dropdown text feature, where clicking a heading reveals next or photos underneath it. This plugin provides the easiest way to create these effects in your WordPress pages and posts. Anyone who can use the WordPress post editor can use this plugin to create animated FAQ pages, or other pages that have this effect. No need for a shortcode or other coding needed!
 
-To create your FAQ page, just click a checkbox on the post editing screen, or include "Frequently Asked Questions" or "FAQ" somwhere in the title. In the content of the page, select a heading style for the questions or titles that you want to appear, and the paragraphs, lists, photos, and videos beneath them will be hidden until the heading is clicked.
+To create your FAQ page, just click a checkbox on the post editing screen. In the content of the page, select a heading style for the questions or titles that you want to appear, and the paragraphs, lists, photos, and videos beneath them will be hidden until the heading is clicked. OR you can use the shortcodes [bg_faq_start] and [bg_faq_end] to wrap the section of content that you want to have this effect.
 
 == Installation ==
 
-1. Upload the 'easy-faq-by-bgentry' folder `/wp-content/plugins/` directory
+1. Upload the 'easy-faq-by-bgentry' folder to your `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions
+3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions and settings
 
 == Changelog ==
+
+= 3.2 =
+* Introduced [bg_faq_start] and [bg_faq_end] shortcodes to allow users to apply drop down effects to only certain parts of the page. This allows for more complicated layouts, such as a page that has lots of headings but only a few that need the dropdown text, or nested dropdowns.
+* Display settings (such as visual cues, or the option to display only one "answer" at a time) are now available for each individual page or post.
+* Improved the plugin's ability to operate on single pages even if it is used with a theme that is missing the wp_footer hook
 
 = 3.1.5 =
 Improved compability with Internet Explorer by removing a line of javascript that was not needed.
