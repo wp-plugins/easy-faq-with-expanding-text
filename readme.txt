@@ -7,7 +7,7 @@ Stable tag: 3.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, although there is an optional shortcode for more complex displays.
+Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. Shortcode is available, not required.
 
 == Description ==
 
