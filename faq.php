@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2
+Version: 3.2.1
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -34,14 +34,14 @@ if ( $loadfaq == 1 ) {
 			add_filter( 'the_content', 'faq_filter',1 );
 			add_action('wp_head', 'faq_css_output');
 			
-			if ( is_single() || is_page() ) {
+			
 			
 				add_filter ('the_content', 'faq_function_call' ); //calls the FAQ javascript function for a single post or page
 			
-			}
-			else {
+			
+			
 				add_action('get_footer', 'faq_footer'); //if we're on a list of posts, call this function in the footer
-			}
+			
 	}
 }
 
@@ -126,7 +126,9 @@ function faq_filter($content) {
 function faq_footer() {
 	$faqoptions = get_option('bg_faq_options');
 	$foldup = $faqoptions['foldup'];
-	echo '<script>bgfaq("'.$foldup.'")</script>';
+	echo '<script>if ( typeof faqStarted == "undefined" ) {
+	faqStarted = true;	
+	bgfaq("'.$foldup.'")}</script>';
 	}
 
 //output the javascript to launch the animation at the bottom of a single post or page
@@ -141,7 +143,9 @@ function faq_function_call( $content ) {
 		$foldup = $foldupOptions;
 	}
 	
-	$content .= '<script>bgfaq("'.$foldup.'")</script>';
+	$content .= '<script>if ( typeof faqStarted == "undefined" ) {';
+	$content .= 'faqStarted = true;';
+	$content .= 'bgfaq("'.$foldup.'"); }</script>';
 	return $content;
 }
 	
@@ -241,7 +245,7 @@ function faq_admin_init(){
 
 function faq_get_content_div_class() {
 $faqoptions = get_option('bg_faq_options');
-echo '<p><strong>Most of these settings</strong>are available on each individual post. However, these default options will be used on a list of posts or on any posts that do not have these settings explicitly set.</p>';
+
 echo '<p><label><strong>One answer open at a time?</strong>';
 if($faqoptions['foldup'] == "yes")
 	echo "<input name='bg_faq_options[foldup]' type='checkbox' value='yes' checked /> When users open one question, do you want all other opened answers to disappear as the new answer appears? Check here for yes.";

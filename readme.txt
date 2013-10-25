@@ -3,7 +3,7 @@ Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Tested up to: 3.6.1
-Stable tag: 3.2
+Stable tag: 3.2.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ To create your FAQ page, just click a checkbox on the post editing screen. In th
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions and settings
 
 == Changelog ==
+
+= 3.2.1 =
+* Added a checking mechanism that ensures the animation effects only get applied once, even on some WordPress pages that strangely tried to call the javascript twice
 
 = 3.2 =
 * Introduced [bg_faq_start] and [bg_faq_end] shortcodes to allow users to apply drop down effects to only certain parts of the page. This allows for more complicated layouts, such as a page that has lots of headings but only a few that need the dropdown text, or nested dropdowns.
