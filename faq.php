@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2.1
+Version: 3.2.2
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -32,16 +32,7 @@ if ( $loadfaq == 1 ) {
 			wp_enqueue_script('faqmaker', plugins_url( 'faqmaker.js' , __FILE__ ), array('jquery'));
 			wp_enqueue_style( 'faqstyle', plugins_url( 'faqstyle.css' , __FILE__ ));
 			add_filter( 'the_content', 'faq_filter',1 );
-			add_action('wp_head', 'faq_css_output');
-			
-			
-			
-				add_filter ('the_content', 'faq_function_call' ); //calls the FAQ javascript function for a single post or page
-			
-			
-			
-				add_action('get_footer', 'faq_footer'); //if we're on a list of posts, call this function in the footer
-			
+			add_action('wp_head', 'faq_css_output');	
 	}
 }
 
@@ -115,8 +106,17 @@ function faq_filter($content) {
 		$faq_shortcode_checkbox=get_post_meta($post->ID, 'make_faq_shortcode', true);
 		
 		if ( ($pos!==false || $posa!==false ||  $faq_checkbox=='yes' ) && $faq_shortcode_checkbox!=='yes' ) {
+		
+					$foldupOptions = get_post_meta($post->ID, 'bgFAQfoldup', true);
+		if ( $foldupOptions == 'default' || $foldupOptions == false ) {
+			$faqoptions = get_option('bg_faq_options');
+			$foldup = $faqoptions['foldup'];
+		}
+		else {
+			$foldup = $foldupOptions;
+		}
 		//this code adds a script to call our javascript function with arguments set on the admin page
-	$content = '<div class="bg_faq_content_section">'.$content;
+	$content = '<div data-foldup="'.$foldup.'" class="bg_faq_content_section">'.$content;
 		$content.='</div>';
 		}
 		return $content;
@@ -369,7 +369,15 @@ add_shortcode( 'bg_faq_start' , 'bg_faq_shortcode_start' );
 add_shortcode( 'bg_faq_end' , 'bg_faq_shortcode_end' );
 
 function bg_faq_shortcode_start() {
-	return '<div class="bg_faq_content_section">';
+	$foldupOptions = get_post_meta($post->ID, 'bgFAQfoldup', true);
+	if ( $foldupOptions == 'default' || $foldupOptions == false ) {
+		$faqoptions = get_option('bg_faq_options');
+		$foldup = $faqoptions['foldup'];
+	}
+		else {
+			$foldup = $foldupOptions;
+		}
+	return '<div data-foldup="'.$foldup.'" class="bg_faq_content_section">';
 }
 
 function bg_faq_shortcode_end() {
