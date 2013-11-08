@@ -3,7 +3,7 @@ Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Tested up to: 3.7.1
-Stable tag: 3.2.2
+Stable tag: 3.2.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,10 @@ To create your FAQ page, just click a checkbox on the post editing screen. In th
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions and settings
 
 == Changelog ==
+
+=3.2.3 =
+* Fixed the ability to have each page or post individually control whether it will have just one answer open at a time.
+* Updated javascript to improve the nested drop down feature
 
 = 3.2.2 =
 * Made the plugin more reliable for a wider variety of use cases, using more efficient coding. (Details: In the previous version, the plugin would not operate on pages that called the content filter before loading the main content of the page.)

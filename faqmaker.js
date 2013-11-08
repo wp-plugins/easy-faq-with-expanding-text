@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 		
 		
 		
-		$(' :header:not(h6)', this).each(function(){ // select all the heading in .bg_faq_content_section other than h6
+		$(this).children(' :header:not(h6)').each(function(){ // select all the heading in .bg_faq_content_section other than h6
 			$(this).addClass('bg_faq_closed'); 					//make these heading "closed"
 			$(this).attr('data-foldupq', foldup);
 			$(this).nextUntil(':header').css({'display':'none'}); 	//hide everything up until the next heading
@@ -20,13 +20,15 @@ jQuery(document).ready(function($) {
 		$(this).click(function(){
 				foldup = $(this).attr('data-foldupq');
 																		//whenever one of these headings is clicked,
-			if($(this).hasClass('bg_faq_opened')) {				//check to see if it's opened. If so,...
+			if($(this).hasClass('bg_faq_opened')) {	
+				
+			//check to see if it's opened. If so,...
 				$(this).nextUntil(':header').slideUp();			//slide up the content beneath it and mark this heading "closed"
 				$(this).removeClass('bg_faq_opened').addClass('bg_faq_closed');
 				}
 		else {															//if it isn't opened,
 		if(foldup=='yes') {												//check to see we are supposed to fold up other content so only one answer shows at a time.
-				$(this).parent('.bg_faq_content_section').find('.bg_faq_opened').each(function(){					//if so...
+				$(this).parent('.bg_faq_content_section').find('.bg_faq_opened').not(this).each(function(){					//if so...
 				$(this).nextUntil(':header').slideUp();			//foldup other content and mark the headings as closed
 				$(this).removeClass('bg_faq_opened').addClass('bg_faq_closed');
 			})
