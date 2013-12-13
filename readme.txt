@@ -2,8 +2,8 @@
 Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
-Tested up to: 3.7.1
-Stable tag: 3.2.3
+Tested up to: 3.8
+Stable tag: 3.2.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ To create your FAQ page, just click a checkbox on the post editing screen. In th
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions and settings
 
 == Changelog ==
+
+=3.2.4=
+* Updated javascript to restore ability to apply the animated effects to headings that are in tables or within other elements.
 
 =3.2.3 =
 * Fixed the ability to have each page or post individually control whether it will have just one answer open at a time.

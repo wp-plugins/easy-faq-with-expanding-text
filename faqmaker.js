@@ -5,8 +5,9 @@ jQuery(document).ready(function($) {
 		
 		
 		
-		$(this).children(' :header:not(h6)').each(function(){ // select all the heading in .bg_faq_content_section other than h6
-			$(this).addClass('bg_faq_closed'); 					//make these heading "closed"
+		$(this).find(' :header:not(h6)').each(function(){ // select all the heading in .bg_faq_content_section other than h6
+			if ( !$(this).hasClass('bg_faq_closed')) {
+                        $(this).addClass('bg_faq_closed'); 					//make these heading "closed"
 			$(this).attr('data-foldupq', foldup);
 			$(this).nextUntil(':header').css({'display':'none'}); 	//hide everything up until the next heading
 			var textsize = $(this).css('font-size'); 				//get the font size in order to more accurately position the visual cue
@@ -39,7 +40,7 @@ jQuery(document).ready(function($) {
 		
 		
 		})			
-			
+                }
 		});
 		
 
