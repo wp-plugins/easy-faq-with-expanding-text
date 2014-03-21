@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2.4
+Version: 3.2.5
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -60,7 +60,15 @@ if ( $loadfaq == 1 ) {
 	elseif ( $visualCue == 'updown' ) {
 		$closedimg = plugins_url( 'downarrow.png', __FILE__ );
 		$openedimg = plugins_url( 'uparrow.png', __FILE__ );	
-		}
+		}	
+	elseif ( $visualCue == 'updownWhite' ) {
+		$closedimg = plugins_url( 'downarrowWhite.png', __FILE__ );
+		$openedimg = plugins_url( 'uparrowWhite.png', __FILE__ );	
+	}
+	elseif ( $visualCue == 'plusminusWhite' ) {
+		$closedimg = plugins_url( 'plussignWhite.png', __FILE__ );
+		$openedimg = plugins_url( 'minussignWhite.png', __FILE__ );	
+	}
 		if( $closedimg ) {
 		//if the user set up images to show...
 			echo '
@@ -254,7 +262,7 @@ else
 echo '</label></p>';
 echo '<h3>Visual Cues</h3>';
 echo '<p>The plugin can place a visual cue next to the questions so your readers can know to click on them. Choose a visual cue:</p>';
-$visualCues = array( array('plusminus', 'Plus Sign and Minus Sign', 'plusminus.png'), array('updown', 'Up Arrow and Down Arrow', 'arrows.png'), array('none', 'None', 'none.png'));
+$visualCues = array( array('plusminus', 'Plus Sign and Minus Sign', 'plusminus.png'), array('updown', 'Up Arrow and Down Arrow', 'arrows.png'),array('plusminusWhite', 'White Plus Minus Sign', 'plusminusWhite.png'), array('updownWhite', 'White Up and Down Arrows', 'arrowsWhite.png'), array('none', 'None', 'none.png'));
 foreach ( $visualCues as $cue ) {
 $checked = ( $faqoptions['visualcue'] == $cue[0] ) ? ' checked="checked"' : '';
 	$imgfile = plugins_url( $cue[2], __FILE__ );
@@ -311,7 +319,7 @@ function make_faq_check_box($post) {
 	<p>Only one question open at a time? When users open one question on this page, do you want all other opened answers to disappear as the new answer appears?</p>
 	<li><label><input type="radio" name="bgFAQfoldup" value="yes" <?php echo $foldupYesChecked; ?>>Yes</label><label><input type="radio" name="bgFAQfoldup" value="no" <?php echo $foldupNoChecked; ?>>No</label><label><input type="radio" name="bgFAQfoldup" value="default" <?php echo $foldupDefaultChecked; ?>>Default from plugin settings</label></li>
 	<p>Do you want a visual cue on the questions on this page?</p>
-	<?php  $visualCues = array( array('plusminus', 'Plus Sign / Minus Sign', 'plusminus.png'), array('updown', 'Up Arrow / Down Arrow', 'arrows.png'), array('none', 'None', 'none.png'), array('default', 'Default from plugin settings', 'none.png') );
+	<?php  $visualCues = array( array('plusminus', 'Plus Sign / Minus Sign', 'plusminus.png'), array('updown', 'Up Arrow / Down Arrow', 'arrows.png'), array('plusminusWhite', 'White Plus Minus Sign', 'plusminusWhite.png'), array('updownWhite', 'White Up and Down Arrows', 'arrowsWhite.png'), array('none', 'None', 'none.png'), array('default', 'Default from plugin settings', 'none.png') );
 	foreach ( $visualCues as $cue ) {
 		$checked = ( $visualCuesOption == $cue[0] ) ? ' checked="checked"' : '';
 		$imgfile = plugins_url( $cue[2], __FILE__ );

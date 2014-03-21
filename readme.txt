@@ -3,7 +3,7 @@ Contributors: bgentry
 Donate link: http://bryangentry.us/pay-me
 Tags: faq pages
 Tested up to: 3.8
-Stable tag: 3.2.4
+Stable tag: 3.2.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,9 @@ To create your FAQ page, just click a checkbox on the post editing screen. In th
 3. Click on FAQ Admin Page in the left-side menu on the dashboard for detailed instructions and settings
 
 == Changelog ==
+
+=3.2.5=
+* Added a second color (white) for the optional visual cues that appear next to the drop down headings.
 
 =3.2.4=
 * Updated javascript to restore ability to apply the animated effects to headings that are in tables or within other elements.
