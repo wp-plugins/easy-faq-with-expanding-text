@@ -29,7 +29,9 @@ jQuery(document).ready(function($) {
 				}
 		else {															//if it isn't opened,
 		if(foldup=='yes') {												//check to see we are supposed to fold up other content so only one answer shows at a time.
-				$(this).parent('.bg_faq_content_section').find('.bg_faq_opened').not(this).each(function(){					//if so...
+//		console.log('foldup = yes');
+				
+				$(this).parents('.bg_faq_content_section').eq(0).find('.bg_faq_opened').not(this).each(function(){					//if so...
 				$(this).nextUntil(':header').slideUp();			//foldup other content and mark the headings as closed
 				$(this).removeClass('bg_faq_opened').addClass('bg_faq_closed');
 			})

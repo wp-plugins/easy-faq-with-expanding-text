@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2.5
+Version: 3.2.6
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -377,7 +377,7 @@ add_shortcode( 'bg_faq_start' , 'bg_faq_shortcode_start' );
 add_shortcode( 'bg_faq_end' , 'bg_faq_shortcode_end' );
 
 function bg_faq_shortcode_start() {
-	$foldupOptions = get_post_meta($post->ID, 'bgFAQfoldup', true);
+	$foldupOptions = get_post_meta(get_the_ID(), 'bgFAQfoldup', true);
 	if ( $foldupOptions == 'default' || $foldupOptions == false ) {
 		$faqoptions = get_option('bg_faq_options');
 		$foldup = $faqoptions['foldup'];
@@ -385,6 +385,7 @@ function bg_faq_shortcode_start() {
 		else {
 			$foldup = $foldupOptions;
 		}
+		
 	return '<div data-foldup="'.$foldup.'" class="bg_faq_content_section">';
 }
 
