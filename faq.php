@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2.6
+Version: 3.2.7
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -166,11 +166,28 @@ function faq_admin_page() {
 
 function faq_options_page() {
 //lots of great admin stuff
+
+if (  $_POST['removedonationlink'] === 'true') {
+
+	if ( check_admin_referer( 'remove_donation_link','bg_faq_remove_donation_link' ) ) {
+		delete_option( 'bgfaqdonated' );
+		add_option( 'bgfaqdonated', true, '', 'no' );
+	}
+}
+
+
 ?>
 <h1>Create an animated FAQ page with the Easy FAQ with Expanding Text plugin.</h1>
 <p>This plugin turns a standard WordPress page&#8212;or part of a page&#8212;into a dynamic animated page that reveals and hides content when readers click headings.</p>
 <p>Set options for the plugin below, or read <a href="#instructions">instructions for using the plugin</a> below.</p>
 <div style="clear:both;"></div>
+
+<?php
+
+$donationmade = get_option( 'bgfaqdonated' );
+if ( $donationmade == false ) {
+
+?>
 <div style="float:right; width:35%; margin: 0px 2% 0px 2%; padding:10px; background-color:#c6ece8; border-radius:20px;">
 <h1>Donate</h1>
 <p>Has this plugin helped you make your website better? Was it easy to use?</p>
@@ -184,6 +201,8 @@ function faq_options_page() {
 <p>Also, I would appreciate your support by <a href="http://wordpress.org/extend/plugins/easy-faq-with-expanding-text/" target="_blank" title="Plugin Page on WordPress.org">rating the plugin on WordPress.org</a> or reviewing / featuring it on your blog. Contact me at bryangentry@gmail.com with questions.</p>
 <p>If you'd like to work with me on a project or have me do some freelance programming for you, e-mail me at the above address.</p>
 </div>
+<?php } ?>
+
 <div style="border-radius: 20px; background-color: #ecd5c6; padding:10px; margin: 0px 2% 0px 50px; width: 53%;">
 <form action='options.php' method='post'>
 <?php
@@ -241,8 +260,18 @@ do_settings_sections('faq_section');?>
 <p><strong style="font-size:20px;">Third</strong>, save the page, then view it.</p>
 <h2>See the <a href="#troubleshooting">troubleshooting</a> section above for tips and problem solving.</h2>
 
+<?php
+
+if ( $donationmade == false ) { ?>
+
+<form action="" method="post">
+<?php wp_nonce_field( 'remove_donation_link','bg_faq_remove_donation_link' ); ?>
+	<input type="checkbox" value="true" name="removedonationlink" /> If you have made a donation to support Easy FAQ With Expanding Text, check this box and click "Remove". Please only use this if you have made a donation to support the plugin.<br/>
+	<button class="button-primary">Remove</button>
+</form>
 
 <?php
+	}
 }
 	
 add_action('admin_init', 'faq_admin_init');
