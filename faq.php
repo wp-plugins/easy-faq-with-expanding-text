@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2.7
+Version: 3.2.8
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -85,14 +85,14 @@ padding-left:25px;
 background-repeat: no-repeat;
 } </style>';
 		}
-		unset($hsixstyle); //make sure this variable is empty  before we start evaluating whether to use it
+		$hsixstyle = ""; //make sure this variable is empty  before we start evaluating whether to use it
 	if ( $faqoptions['hsixsize'] )
 		$hsixstyle = 'font-size:'.$faqoptions['hsixsize'].'!important;';
 	if ( $faqoptions['hsixfont'] )
 		$hsixstyle .= 'font-family:'.$faqoptions['hsixfont'].'!important;';
 	if ( $faqoptions['hsixcolor'] )
 		$hsixstyle .= 'color:'.$faqoptions['hsixcolor'].'!important;';
-	if ( $hsixstyle ) {
+	if ( $hsixstyle !== "") {
 			//display the styles for h6
 			echo '<style type="text/css">h6 { '.$hsixstyle.'}</style>';
 		}
@@ -391,8 +391,8 @@ function save_faq_check_box($post_id) {
 
 
   $faq = $_POST['make_faq_page'];
-  update_post_meta( $post_id, 'make_faq_page', $faq);	
-  $faq_shortcode = $_POST['make_faq_shortcode'];
+  update_post_meta( $post_id, 'make_faq_page', $faq);
+  $faq_shortcode = ( isset( $_POST['make_faq_shortcode'] ) ) ? $_POST['make_faq_shortcode'] : "";
   update_post_meta( $post_id, 'make_faq_shortcode', $faq_shortcode);
   if ( isset ($_POST['bgFAQfoldup']) ) {
 	update_post_meta( $post_id, 'bgFAQfoldup', $_POST['bgFAQfoldup']);
