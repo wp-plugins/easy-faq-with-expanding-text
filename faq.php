@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy FAQ with Expanding Text
 Description: Easily create a Frequently Asked Questions page with answers that slide down when the questions are clicked. No need for a shortcode, HTML coding, or javascript tweaking.
-Version: 3.2.8
+Version: 3.2.8.1
 Author: bgentry
 Author URI: http://bryangentry.us
 Plugin URI: http://bryangentry.us/easy-faq-page-with-expanding-text-wordpress-plugin/
@@ -48,7 +48,7 @@ if ( $loadfaq == 1 ) {
 			
 			$visualCue = $faqoptions['visualcue'];
 		}
-	} else { //this is not a signle page or post, so use the default option
+	} else { //this is not a single page or post, so use the default option
 			
 			$visualCue = $faqoptions['visualcue'];
 	}
@@ -69,7 +69,7 @@ if ( $loadfaq == 1 ) {
 		$closedimg = plugins_url( 'plussignWhite.png', __FILE__ );
 		$openedimg = plugins_url( 'minussignWhite.png', __FILE__ );	
 	}
-		if( $closedimg ) {
+		if( isset( $closedimg ) ) {
 		//if the user set up images to show...
 			echo '
 			<style type="text/css">
